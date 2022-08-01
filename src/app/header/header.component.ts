@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+import { UserConfigurationModalService } from './configuration/user-configuration-modal.service';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  constructor(private readonly viewContainerRef: ViewContainerRef,
+              private readonly modalService: UserConfigurationModalService) {}
 
-  ngOnInit(): void {
+  openConfiguration(): void {
+    this.modalService.open(this.viewContainerRef);
   }
 
 }

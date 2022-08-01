@@ -9,6 +9,7 @@ import {WidgetsModule} from './app/widgets/widgets.module';
 import {ApplicationPropertiesService} from './app/platform/application-properties.service';
 import {UserSettingsService} from './app/platform/user-settings.service';
 import {combineLatest} from 'rxjs';
+import {SettingsStoreService} from './app/platform/settings-store.service';
 
 if (environment.production) {
   enableProdMode();
@@ -26,11 +27,16 @@ const platformRef = platformBrowserDynamic([
     deps: []
   },
   {
+    provide: SettingsStoreService,
+    useClass: SettingsStoreService
+  },
+  {
     provide: PLATFORM_INITIALIZER,
     multi: true,
     useFactory: (
       applicationPropertiesService: ApplicationPropertiesService,
-      settingsService: UserSettingsService
+      settingsService: UserSettingsService,
+      settingsStoreService: SettingsStoreService
     ) => {
       return () => {
         const applicationProperties$ = applicationPropertiesService.get();
@@ -42,11 +48,12 @@ const platformRef = platformBrowserDynamic([
           });
 
         combineLatest([applicationProperties$, settingsService.get()])
-          .subscribe(() => {
+          .subscribe(([_, val]) => {
+            settingsStoreService.setWidget(val.enabledWidget);
             platformRef.bootstrapModule(WidgetsModule);
           });
       };
     },
-    deps: [ApplicationPropertiesService, UserSettingsService]
+    deps: [ApplicationPropertiesService, UserSettingsService, SettingsStoreService]
   }
 ]);

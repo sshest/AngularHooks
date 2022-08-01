@@ -1,11 +1,11 @@
 import {ApplicationRef, DoBootstrap, NgModule} from '@angular/core';
-import { ActivityWidgetsComponent } from './activity-widget/activity-widgets.component';
-import { NewsWidgetComponent } from './news-widget/news-widget.component';
+import {ActivityWidgetsComponent} from './activity-widget/activity-widgets.component';
+import {NewsWidgetComponent} from './news-widget/news-widget.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {ActivitiesModule} from './activities/activities.module';
-import { NewsComponent } from './news/news/news.component';
 import {NewsModule} from './news/news.module';
-
+import {SettingsStoreService} from '../platform/settings-store.service';
+import {Widget} from '../platform/widget';
 
 
 @NgModule({
@@ -18,9 +18,14 @@ import {NewsModule} from './news/news.module';
   ]
 })
 export class WidgetsModule implements DoBootstrap {
+  constructor(private settingsStoreService: SettingsStoreService) {}
 
   ngDoBootstrap(appRef: ApplicationRef): void {
-    // appRef.bootstrap(NewsWidgetComponent);
-    appRef.bootstrap(ActivityWidgetsComponent);
+    const widget = this.settingsStoreService.getWidget();
+    if (widget === Widget.NEWS) {
+      appRef.bootstrap(NewsWidgetComponent);
+    } else {
+      appRef.bootstrap(ActivityWidgetsComponent);
+    }
   }
 }
