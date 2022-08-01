@@ -33,18 +33,20 @@ const platformRef = platformBrowserDynamic([
       settingsService: UserSettingsService
     ) => {
       return () => {
-        applicationPropertiesService.get()
+        const applicationProperties$ = applicationPropertiesService.get();
+        applicationProperties$
           .subscribe(() => {
             platformRef.bootstrapModule(AppModule);
             platformRef.bootstrapModule(HeaderModule);
             platformRef.bootstrapModule(FooterModule);
           });
 
-        combineLatest([applicationPropertiesService.get(), settingsService.get()])
+        combineLatest([applicationProperties$, settingsService.get()])
           .subscribe(() => {
             platformRef.bootstrapModule(WidgetsModule);
           });
       };
-    }
+    },
+    deps: [ApplicationPropertiesService, UserSettingsService]
   }
 ]);
