@@ -17,4 +17,8 @@ export class UserSettingsService {
 
     return of(settings).pipe(delay(3500));
   }
+
+  set(widget): void {
+    localStorage.setItem('widget', widget);
+  }
 }

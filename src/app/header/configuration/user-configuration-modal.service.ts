@@ -1,5 +1,5 @@
 import { ComponentFactoryResolver, ComponentRef, Injectable, ViewContainerRef } from '@angular/core';
-import { UserConfigurationComponent } from './user-settings/user-settings.component';
+import { UserConfigurationComponent } from './user-configuration-modal/user-configuration.component';
 
 @Injectable({
   providedIn: 'root'

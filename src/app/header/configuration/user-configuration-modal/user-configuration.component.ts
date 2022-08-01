@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { UserConfigurationModalService } from '../user-configuration-modal.service';
 import { SettingsStoreService } from '../../../platform/settings-store.service';
 import { Widget } from '../../../platform/widget';
+import {UserSettingsService} from '../../../platform/user-settings.service';
 
 @Component({
-  selector: 'app-user-settings',
-  templateUrl: './user-settings.component.html'
+  selector: 'app-user-configuration',
+  templateUrl: './user-configuration.component.html'
 })
 export class UserConfigurationComponent implements OnInit {
 
   activeWidget: Widget;
 
   constructor(private readonly modalService: UserConfigurationModalService,
+              private userSettingsService: UserSettingsService,
               private readonly storeService: SettingsStoreService) {}
 
   ngOnInit(): void {
@@ -23,7 +25,7 @@ export class UserConfigurationComponent implements OnInit {
   }
 
   setWidget(widget: string): void {
-    localStorage.setItem('widget', widget);
+    this.userSettingsService.set(widget);
   }
 
   saveChanges(): void {

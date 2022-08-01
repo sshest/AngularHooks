@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserConfigurationComponent } from './user-settings/user-settings.component';
+import { UserConfigurationComponent } from './user-configuration-modal/user-configuration.component';
 
 
 

@@ -9,8 +9,8 @@ import {Widget} from '../platform/widget';
 
 
 @NgModule({
-  declarations: [ActivityWidgetsComponent, NewsWidgetComponent],
-  entryComponents: [ActivityWidgetsComponent, NewsWidgetComponent],
+  // declarations: [ActivityWidgetsComponent, NewsWidgetComponent],
+  // entryComponents: [ActivityWidgetsComponent, NewsWidgetComponent],
   imports: [
     BrowserModule,
     ActivitiesModule,

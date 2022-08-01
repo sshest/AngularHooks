@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { NewsListComponent } from './news-list/news-list.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from './news.service';
+import {NewsWidgetComponent} from '../news-widget/news-widget.component';
 
 
 
 @NgModule({
-  declarations: [NewsComponent, NewsListComponent],
+  declarations: [NewsComponent, NewsListComponent, NewsWidgetComponent],
   exports: [NewsListComponent],
+  entryComponents: [NewsListComponent, NewsWidgetComponent],
   imports: [
     CommonModule
   ],
