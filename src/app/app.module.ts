@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {GdprModule} from './gdpr/gdpr.module';
-import { ModalComponent } from './gdpr/modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ModalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

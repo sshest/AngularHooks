@@ -1,6 +1,8 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsListComponent } from './news-list/news-list.component';
+import {NewsComponent} from './news/news.component';
+import {NewsService} from './news.service';
 
 
 

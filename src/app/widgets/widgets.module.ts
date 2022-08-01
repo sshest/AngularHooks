@@ -9,7 +9,7 @@ import {NewsModule} from './news/news.module';
 
 
 @NgModule({
-  declarations: [ActivityWidgetsComponent, NewsWidgetComponent, NewsComponent],
+  declarations: [ActivityWidgetsComponent, NewsWidgetComponent],
   entryComponents: [ActivityWidgetsComponent, NewsWidgetComponent],
   imports: [
     BrowserModule,
