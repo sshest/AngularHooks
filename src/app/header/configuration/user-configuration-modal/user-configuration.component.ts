@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { UserConfigurationModalService } from '../user-configuration-modal.service';
+import {Component, OnInit} from '@angular/core';
 import { SettingsStoreService } from '../../../platform/settings-store.service';
 import { Widget } from '../../../platform/widget';
 import {UserSettingsService} from '../../../platform/user-settings.service';
+
+declare interface Closable {
+  close: () => void;
+}
 
 @Component({
   selector: 'app-user-configuration',
   templateUrl: './user-configuration.component.html'
 })
-export class UserConfigurationComponent implements OnInit {
+export class UserConfigurationComponent implements OnInit, Closable {
 
   activeWidget: Widget;
 
-  constructor(private readonly modalService: UserConfigurationModalService,
+  constructor(
               private userSettingsService: UserSettingsService,
-              private readonly storeService: SettingsStoreService) {}
+              private storeService: SettingsStoreService) {
+  }
 
   ngOnInit(): void {
     this.activeWidget = this.storeService.getWidget();
@@ -32,8 +36,5 @@ export class UserConfigurationComponent implements OnInit {
     location.reload();
   }
 
-  close(): void {
-    this.modalService.close();
-  }
-
+  close(): void {}
 }

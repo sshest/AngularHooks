@@ -11,4 +11,4 @@ import { UserConfigurationComponent } from './user-configuration-modal/user-conf
     CommonModule
   ]
 })
-export class ConfigurationModule { }
+export class UserConfigurationModule { }

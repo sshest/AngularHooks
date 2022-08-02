@@ -10,14 +10,15 @@ export class UserConfigurationModalService {
 
   constructor(private readonly factoryResolver: ComponentFactoryResolver) {}
 
-  open(viewContainerRef: ViewContainerRef): void {
+  open(viewContainerRef: ViewContainerRef): ComponentRef<UserConfigurationComponent> {
     if (this.instance !== null) {
       console.error('User settings modal already opened');
       return;
     }
-
+    UserConfigurationComponent.prototype.close = this.close.bind(this);
     const factory = this.factoryResolver.resolveComponentFactory(UserConfigurationComponent);
     this.instance = viewContainerRef.createComponent(factory);
+    return this.instance;
   }
 
   close(): void {
