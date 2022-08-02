@@ -4,9 +4,7 @@ import {Widget} from './widget';
 import {delay} from 'rxjs/operators';
 import {UserSettings} from './user-settings';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserSettingsService {
 
   get(): Observable<UserSettings> {

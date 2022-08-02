@@ -6,9 +6,6 @@ import {ActivitiesModule} from './activities/activities.module';
 import {NewsModule} from './news/news.module';
 import {SettingsStoreService} from '../platform/settings-store.service';
 import {Widget} from '../platform/widget';
-import {NewsService} from './news/news.service';
-import {take} from 'rxjs/operators';
-
 
 @NgModule({
   imports: [
@@ -29,8 +26,8 @@ import {take} from 'rxjs/operators';
   // ]
 })
 export class WidgetsModule implements DoBootstrap {
-  constructor(private settingsStoreService: SettingsStoreService) {
-    // console.log('[MODULE:WIDGETS:CONSTRUCTOR]');
+  constructor(private readonly settingsStoreService: SettingsStoreService) {
+    console.log('[MODULE:WIDGETS:CONSTRUCTOR]');
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {

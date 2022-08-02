@@ -28,7 +28,8 @@ const platformRef = platformBrowserDynamic([
   },
   {
     provide: SettingsStoreService,
-    useClass: SettingsStoreService
+    useClass: SettingsStoreService,
+    deps: []
   },
   {
     provide: PLATFORM_INITIALIZER,
