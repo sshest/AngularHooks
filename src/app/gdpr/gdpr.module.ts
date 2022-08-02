@@ -1,15 +1,15 @@
 import {APP_BOOTSTRAP_LISTENER, ComponentFactoryResolver, ComponentRef, NgModule, ViewContainerRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalComponent } from './modal/modal.component';
+import { GDPRModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
-  declarations: [ModalComponent],
+  declarations: [GDPRModalComponent],
   imports: [
     CommonModule
   ],
-  entryComponents: [ModalComponent],
+  entryComponents: [GDPRModalComponent],
   providers: [
     {
       multi: true,
@@ -17,7 +17,7 @@ import { ModalComponent } from './modal/modal.component';
       useFactory: (resolver: ComponentFactoryResolver) => {
         // console.log('[MODULE:GDPR:APP_BOOTSTRAP_LISTENER]');
         return (componentRef: ComponentRef<any>) => {
-          const factory = resolver.resolveComponentFactory(ModalComponent);
+          const factory = resolver.resolveComponentFactory(GDPRModalComponent);
           const viewContainerRef = componentRef.injector.get(ViewContainerRef);
           viewContainerRef.createComponent(factory);
         };

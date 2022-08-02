@@ -5,8 +5,6 @@ import {NewsComponent} from './news/news.component';
 import {NewsService} from './news.service';
 import {NewsWidgetComponent} from '../news-widget/news-widget.component';
 import {take, tap} from 'rxjs/operators';
-import {ModalComponent} from '../../gdpr/modal/modal.component';
-
 
 
 @NgModule({
