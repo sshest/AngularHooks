@@ -4,6 +4,7 @@ import { NewsListComponent } from './news-list/news-list.component';
 import {NewsComponent} from './news/news.component';
 import {NewsService} from './news.service';
 import {NewsWidgetComponent} from '../news-widget/news-widget.component';
+import {take, tap} from 'rxjs/operators';
 
 
 
@@ -21,6 +22,11 @@ import {NewsWidgetComponent} from '../news-widget/news-widget.component';
       useFactory: (newsService: NewsService) => {
         return () => {
           newsService.fetchNews();
+          return newsService.getNews()
+            .pipe(
+              take(1),
+              // tap(() => console.log('news fetched'))
+            );
         };
       },
       deps: [NewsService]
