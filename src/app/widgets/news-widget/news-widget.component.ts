@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-news-widgets',
+  selector: 'app-widget',
   templateUrl: './news-widget.component.html',
 })
 export class NewsWidgetComponent {

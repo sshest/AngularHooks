@@ -1,5 +1,5 @@
 import {ApplicationRef, DoBootstrap, NgModule} from '@angular/core';
-import {ActivityWidgetsComponent} from './activity-widget/activity-widgets.component';
+import {ActivityWidgetsComponent} from './activities/activity-widget/activity-widgets.component';
 import {NewsWidgetComponent} from './news-widget/news-widget.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {ActivitiesModule} from './activities/activities.module';

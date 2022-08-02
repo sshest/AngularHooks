@@ -9,7 +9,7 @@ import {NewsWidgetComponent} from '../news-widget/news-widget.component';
 
 @NgModule({
   declarations: [NewsComponent, NewsListComponent, NewsWidgetComponent],
-  exports: [NewsListComponent],
+  exports: [NewsListComponent, NewsWidgetComponent],
   entryComponents: [NewsListComponent, NewsWidgetComponent],
   imports: [
     CommonModule
