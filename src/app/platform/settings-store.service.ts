@@ -7,6 +7,10 @@ import {Widget} from './widget';
 export class SettingsStoreService {
   private state: Widget = Widget.NEWS;
 
+  // constructor() {
+  //   console.log('[SERVICE:STORE:CONSTRUCTOR]');
+  // }
+
   setWidget(type: Widget): void {
     this.state = type;
   }

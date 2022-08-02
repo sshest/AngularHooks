@@ -38,6 +38,7 @@ const platformRef = platformBrowserDynamic([
       settingsService: UserSettingsService,
       settingsStoreService: SettingsStoreService
     ) => {
+      // console.log('[PLATFORM INITIALIZER]');
       return () => {
         const applicationProperties$ = applicationPropertiesService.get();
         applicationProperties$

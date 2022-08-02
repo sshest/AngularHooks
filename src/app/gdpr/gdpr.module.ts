@@ -15,6 +15,7 @@ import { ModalComponent } from './modal/modal.component';
       multi: true,
       provide: APP_BOOTSTRAP_LISTENER,
       useFactory: (resolver: ComponentFactoryResolver) => {
+        // console.log('[MODULE:GDPR:APP_BOOTSTRAP_LISTENER]');
         return (componentRef: ComponentRef<any>) => {
           const factory = resolver.resolveComponentFactory(ModalComponent);
           const viewContainerRef = componentRef.injector.get(ViewContainerRef);

@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class ModalComponent {
 
+  // constructor() {
+  //   console.log('[COMPONENT:MODAL:CONSTRUCTOR]');
+  // }
+
   modalVisible = true;
 
   close(): void {
