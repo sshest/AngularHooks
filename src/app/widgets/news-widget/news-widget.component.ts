@@ -1,5 +1,4 @@
-import {APP_INITIALIZER, Component, OnInit} from '@angular/core';
-import {resolve} from '@angular/compiler-cli/src/ngtsc/file_system';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-widget',
