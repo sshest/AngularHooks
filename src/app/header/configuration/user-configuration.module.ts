@@ -12,9 +12,11 @@ import {USER_CONFIGURATION_SERVICE} from './diTokens';
   imports: [
     CommonModule
   ],
-  providers: [{
-    provide: USER_CONFIGURATION_SERVICE,
-    useClass: UserConfigurationModalService
-  }]
+  providers: [
+      {
+        provide: USER_CONFIGURATION_SERVICE,
+        useClass: UserConfigurationModalService
+      }
+    ]
 })
 export class UserConfigurationModule { }

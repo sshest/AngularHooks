@@ -1,5 +1,6 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import {Component, Inject, ViewContainerRef} from '@angular/core';
 import { UserConfigurationModalService } from './configuration/user-configuration-modal.service';
+import {USER_CONFIGURATION_SERVICE} from './configuration/diTokens';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { UserConfigurationModalService } from './configuration/user-configuratio
 export class HeaderComponent {
 
   constructor(private readonly viewContainerRef: ViewContainerRef,
-              private readonly userConfigurationModalService: UserConfigurationModalService) {}
+              @Inject(USER_CONFIGURATION_SERVICE) private userConfigurationModalService: UserConfigurationModalService) {}
 
   openConfiguration(): void {
     this.userConfigurationModalService.open(this.viewContainerRef);
