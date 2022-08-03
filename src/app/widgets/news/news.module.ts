@@ -8,38 +8,34 @@ import {take, tap} from 'rxjs/operators';
 
 
 @NgModule({
-  declarations: [NewsComponent, NewsListComponent, NewsWidgetComponent],
-  exports: [NewsListComponent, NewsWidgetComponent],
-  entryComponents: [NewsListComponent, NewsWidgetComponent],
-  imports: [
-    CommonModule
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      multi: true,
-      useFactory: (newsService: NewsService) => {
-        // console.log('[MODULE:NEWS_WIDGET:APP_INITIALIZER] - before fetch');
-        return () => {
-          newsService.fetchNews();
-          return newsService.getNews()
-            .pipe(
-              take(1),
-              // tap(() => console.log('[MODULE:NEWS_WIDGET:APP_INITIALIZER] - data fetched'))
-            );
-        };
-      },
-      deps: [NewsService]
-    },
-    // {
-    //   multi: true,
-    //   provide: APP_BOOTSTRAP_LISTENER,
-    //   useFactory: () => {
-    //     return () => {
-    //       console.log('[MODULE:NEWS_WIDGET:APP_BOOTSTRAP_LISTENER]');
-    //     };
-    //   },
-    // }
-  ]
+    declarations: [NewsComponent, NewsListComponent, NewsWidgetComponent],
+    exports: [NewsListComponent, NewsWidgetComponent],
+    imports: [
+        CommonModule
+    ],
+    providers: [
+        {
+            provide: APP_INITIALIZER,
+            multi: true,
+            useFactory: (newsService: NewsService) => {
+                // console.log('[MODULE:NEWS_WIDGET:APP_INITIALIZER] - before fetch');
+                return () => {
+                    newsService.fetchNews();
+                    return newsService.getNews()
+                        .pipe(take(1));
+                };
+            },
+            deps: [NewsService]
+        },
+        // {
+        //   multi: true,
+        //   provide: APP_BOOTSTRAP_LISTENER,
+        //   useFactory: () => {
+        //     return () => {
+        //       console.log('[MODULE:NEWS_WIDGET:APP_BOOTSTRAP_LISTENER]');
+        //     };
+        //   },
+        // }
+    ]
 })
 export class NewsModule { }

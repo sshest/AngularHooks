@@ -7,16 +7,15 @@ import {USER_CONFIGURATION_SERVICE} from './diTokens';
 
 
 @NgModule({
-  declarations: [UserConfigurationComponent],
-  entryComponents: [UserConfigurationComponent],
-  imports: [
-    CommonModule
-  ],
-  providers: [
-      {
-        provide: USER_CONFIGURATION_SERVICE,
-        useClass: UserConfigurationModalService
-      }
+    declarations: [UserConfigurationComponent],
+    imports: [
+        CommonModule
+    ],
+    providers: [
+        {
+            provide: USER_CONFIGURATION_SERVICE,
+            useClass: UserConfigurationModalService
+        }
     ]
 })
 export class UserConfigurationModule { }

@@ -5,11 +5,10 @@ import {ActivityWidgetsComponent} from './activity-widget/activity-widgets.compo
 
 
 @NgModule({
-  declarations: [ActivitiesListComponent, ActivityWidgetsComponent],
-  exports: [ActivitiesListComponent, ActivityWidgetsComponent],
-  entryComponents: [ActivitiesListComponent, ActivityWidgetsComponent],
-  imports: [
-    CommonModule
-  ]
+    declarations: [ActivitiesListComponent, ActivityWidgetsComponent],
+    exports: [ActivitiesListComponent, ActivityWidgetsComponent],
+    imports: [
+        CommonModule
+    ]
 })
 export class ActivitiesModule { }
