@@ -8,10 +8,10 @@ import { UserConfigurationModalService } from './configuration/user-configuratio
 export class HeaderComponent {
 
   constructor(private readonly viewContainerRef: ViewContainerRef,
-              private readonly modalService: UserConfigurationModalService) {}
+              private readonly userConfigurationModalService: UserConfigurationModalService) {}
 
   openConfiguration(): void {
-    this.modalService.open(this.viewContainerRef);
+    this.userConfigurationModalService.open(this.viewContainerRef);
   }
 
 }

@@ -1,24 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewContainerRef, ViewRef} from '@angular/core';
 import { SettingsStoreService } from '../../../platform/settings-store.service';
 import { Widget } from '../../../platform/widget';
 import {UserSettingsService} from '../../../platform/user-settings.service';
-
-declare interface Closable {
-  close: () => void;
-}
+import {USER_CONFIGURATION_SERVICE} from '../diTokens';
 
 @Component({
   selector: 'app-user-configuration',
   templateUrl: './user-configuration.component.html'
 })
-export class UserConfigurationComponent implements OnInit, Closable {
+export class UserConfigurationComponent implements OnInit {
 
   activeWidget: Widget;
 
   constructor(
+              @Inject(USER_CONFIGURATION_SERVICE) private userConfigurationModalService: any,
               private userSettingsService: UserSettingsService,
-              private storeService: SettingsStoreService) {
-  }
+              private storeService: SettingsStoreService) {}
 
   ngOnInit(): void {
     this.activeWidget = this.storeService.getWidget();
@@ -36,5 +33,8 @@ export class UserConfigurationComponent implements OnInit, Closable {
     location.reload();
   }
 
-  close(): void {}
+  close(): void {
+    this.userConfigurationModalService.close();
+  }
+
 }
