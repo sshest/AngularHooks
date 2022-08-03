@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../news.service';
+import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-news-list',
@@ -13,10 +14,13 @@ export class NewsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsService.getNews()
-      .subscribe(news => {
-        this.news = news;
-        this.fetchDate = new Date();
-      });
+      .pipe(
+        tap(news => {
+          this.news = news;
+          this.fetchDate = new Date();
+        })
+      )
+      .subscribe();
   }
 
 }
