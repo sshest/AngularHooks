@@ -1,15 +1,17 @@
-import {enableProdMode, PLATFORM_INITIALIZER} from '@angular/core';
+import {enableProdMode, ENVIRONMENT_INITIALIZER, PLATFORM_INITIALIZER} from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import {HeaderModule} from './app/header/header.module';
+// import {HeaderModule} from './app/header/header.module';
 import {FooterModule} from './app/footer/footer.module';
 import {WidgetsModule} from './app/widgets/widgets.module';
 import {ApplicationPropertiesService} from './app/platform/application-properties.service';
 import {UserSettingsService} from './app/platform/user-settings.service';
 import {combineLatest} from 'rxjs';
 import {SettingsStoreService} from './app/platform/settings-store.service';
+import {HeaderComponent} from './app/header/header.component';
+import {bootstrapApplication} from '@angular/platform-browser';
 
 if (environment.production) {
   enableProdMode();
@@ -45,7 +47,15 @@ const platformRef = platformBrowserDynamic([
         applicationProperties$
           .subscribe(() => {
             platformRef.bootstrapModule(AppModule);
-            platformRef.bootstrapModule(HeaderModule);
+            bootstrapApplication(HeaderComponent, {
+              providers: [{
+                multi: true,
+                provide: ENVIRONMENT_INITIALIZER,
+                useValue: () => {
+                  console.log('[COMPONENT:HEADER:ENVIRONMENT_INITIALIZER] gets created');
+                }
+              }]
+            });
             platformRef.bootstrapModule(FooterModule);
           });
 
