@@ -3,7 +3,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-// import {HeaderModule} from './app/header/header.module';
 import {FooterModule} from './app/footer/footer.module';
 import {WidgetsModule} from './app/widgets/widgets.module';
 import {ApplicationPropertiesService} from './app/platform/application-properties.service';
@@ -12,6 +11,7 @@ import {combineLatest} from 'rxjs';
 import {SettingsStoreService} from './app/platform/settings-store.service';
 import {HeaderComponent} from './app/header/header.component';
 import {bootstrapApplication} from '@angular/platform-browser';
+import {share} from 'rxjs/operators';
 
 if (environment.production) {
   enableProdMode();
@@ -43,7 +43,7 @@ const platformRef = platformBrowserDynamic([
     ) => {
       // console.log('[PLATFORM INITIALIZER]');
       return () => {
-        const applicationProperties$ = applicationPropertiesService.get();
+        const applicationProperties$ = applicationPropertiesService.get().pipe(share());
         applicationProperties$
           .subscribe(() => {
             platformRef.bootstrapModule(AppModule);
