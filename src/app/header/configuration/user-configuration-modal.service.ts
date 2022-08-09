@@ -13,7 +13,6 @@ export class UserConfigurationModalService {
       console.error('User settings modal already opened');
       return;
     }
-    // UserConfigurationComponent.prototype.close = this.close.bind(this);
     const factory = this.factoryResolver.resolveComponentFactory(UserConfigurationComponent);
     this.instance = viewContainerRef.createComponent(factory);
     return this.instance;
