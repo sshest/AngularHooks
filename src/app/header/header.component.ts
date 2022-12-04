@@ -18,7 +18,7 @@ export class HeaderComponent {
   constructor(private readonly viewContainerRef: ViewContainerRef,
               @Optional() @Inject(USER_CONFIGURATION_SERVICE) private userConfigurationModalService: UserConfigurationModalService
   ) {
-    // console.log('[COMPONENT:STANDALONE:HEADER:CONSTRUCTOR]');
+    console.log('[COMPONENT:STANDALONE:HEADER:CONSTRUCTOR]');
   }
 
   openConfiguration(): void {

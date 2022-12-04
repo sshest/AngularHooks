@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class GDPRModalComponent {
 
-  // constructor() {
-  //   console.log('[COMPONENT:MODAL:CONSTRUCTOR]');
-  // }
+  constructor() {
+    console.log('[COMPONENT:MODAL:CONSTRUCTOR]');
+  }
 
   modalVisible = true;
 

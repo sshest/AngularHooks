@@ -18,7 +18,7 @@ import {take, tap} from 'rxjs/operators';
             provide: APP_INITIALIZER,
             multi: true,
             useFactory: (newsService: NewsService) => {
-                // console.log('[MODULE:NEWS_WIDGET:APP_INITIALIZER] - before fetch');
+                console.log('[MODULE:NEWS_WIDGET:APP_INITIALIZER] - before fetch');
                 return () => {
                     newsService.fetchNews();
                     return newsService.getNews()
@@ -27,15 +27,15 @@ import {take, tap} from 'rxjs/operators';
             },
             deps: [NewsService]
         },
-        // {
-        //   multi: true,
-        //   provide: APP_BOOTSTRAP_LISTENER,
-        //   useFactory: () => {
-        //     return () => {
-        //       console.log('[MODULE:NEWS_WIDGET:APP_BOOTSTRAP_LISTENER]');
-        //     };
-        //   },
-        // }
+        {
+          multi: true,
+          provide: APP_BOOTSTRAP_LISTENER,
+          useFactory: () => {
+            return () => {
+              console.log('[MODULE:NEWS_WIDGET:APP_BOOTSTRAP_LISTENER]');
+            };
+          },
+        }
     ]
 })
 export class NewsModule { }

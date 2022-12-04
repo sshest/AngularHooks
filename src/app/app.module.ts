@@ -16,7 +16,7 @@ import {GdprModule} from './gdpr/gdpr.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  // constructor() {
-  //   console.log('[MODULE:APP:CONSTRUCTOR]');
-  // }
+  constructor() {
+    console.log('[MODULE:APP:CONSTRUCTOR]');
+  }
 }

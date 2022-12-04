@@ -5,11 +5,11 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './news-widget.component.html',
 })
 export class NewsWidgetComponent implements OnInit {
-  // constructor() {
-  //   console.log('[COMPONENT:NEWS_WIDGET:CONSTRUCTOR]');
-  // }
+  constructor() {
+    console.log('[COMPONENT:NEWS_WIDGET:CONSTRUCTOR]');
+  }
 
   ngOnInit(): void {
-    // console.log('[COMPONENT:NEWS_WIDGET:ON_INIT]');
+    console.log('[COMPONENT:NEWS_WIDGET:ON_INIT]');
   }
 }
